@@ -1,24 +1,19 @@
 document.getElementById('add-money-btn').addEventListener('click', function(event){
     event.preventDefault();
-    const amount = document.getElementById('add-amount');
-    const amountValue = amount.value;
-    const pin = document.getElementById('add-pin');
-    const pinValue = pin.value;
-    const convertedPinValue = parseInt(pinValue);
-    const convertedAmountValue = parseFloat(amountValue);
-    const mainBalance = document.getElementById('main-balance');
-    const mainBalanceValue = mainBalance.innerText;
-    const convertedMainBalance = parseFloat(mainBalanceValue);
+    const amount = getInputValueByIdFloat('add-amount');
+    const pin = getInputValueByIdInt('add-pin');
+    const mainBalance = getInnerTextValueById('main-balance');
+
    
-    if(convertedPinValue===1234){
-    const newAmount = convertedAmountValue + convertedMainBalance;
-   mainBalance.innerText = newAmount;
-   amount.value = '';
-   pin.value = '';
+    if(pin===1234){
+    const newAmount = amount + mainBalance;
+    setInnerTextValueById('main-balance',newAmount);
+    clearTextValueById('add-amount');
+    clearTextValueById('add-pin');
     }
     else{
         alert('Invalid pin number')
-        amount.value = '';
-        pin.value = '';
+        clearTextValueById('add-amount');
+        clearTextValueById('add-pin');
     }
 })
