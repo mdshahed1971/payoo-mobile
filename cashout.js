@@ -15,20 +15,23 @@ document.getElementById('withdraw-btn').addEventListener('click', function(e){
        setInnerTextValueById('main-balance', newWithdraw);
        clearTextValueById('withdraw-amount');
        clearTextValueById('withdraw-pin');
-
         const transitionContainer = document.getElementById('Transition-History');
+        const banks = document.getElementById('bank-select').value;
         const div = document.createElement('div');
         div.classList.add('bg-indigo-500', 'text-white', 'rounded-md', 'p-5', 'mb-5','mt-5')
         div.innerHTML = `
         <h2>Cashout ${withdrawAmount} TAKA:</h2>
-        <h3>Account number is: ${cashoutAccount}</h3>
+        <h2>From ${banks}</h2>
+       <h3>Account number is: ${cashoutAccount}</h3>
     `
+       document.getElementById('Transition-container').classList.remove('hidden');
+  
         transitionContainer.appendChild(div);
     }
     else{
         alert('Invalid pin number')
          clearTextValueById('withdraw-amount');
-       clearTextValueById('withdraw-pin');
+         clearTextValueById('withdraw-pin');
     }
 
 })
