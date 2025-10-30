@@ -7,6 +7,8 @@ document.getElementById('add-money-btn').addEventListener('click', function(even
 
     if(amount<0){
         alert('Insuffient balance to add');
+        clearTextValueById('add-amount');
+        clearTextValueById('add-pin');
         return;
     }
    
